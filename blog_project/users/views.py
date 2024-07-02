@@ -5,6 +5,11 @@ from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 
 
 def register(request):
+    """
+    This function is used to register a new user. If the request method is POST, the form is validated and saved.
+    If the form is valid, the user is redirected to the login page. If the request method is GET, the form is
+    displayed.
+    """
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
