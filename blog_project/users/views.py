@@ -10,18 +10,21 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, message=f'{username} was succesfully created! Now you can log in into your account!')
+            messages.success(request, message=f'{username} was successfully created! Now you can log in into your '
+                                              f'account!')
             return redirect('user-login')
     else:
         form = UserRegisterForm()
 
-    context={
+    context = {
         'form': form,
         }
     return render(request, 'users/register.html', context)
 
+
 def logout(request):
     return render(request, 'users/logout.html')
+
 
 @login_required
 def profile(request):
