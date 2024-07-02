@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -13,4 +14,4 @@ class Post(models.Model):
         return f'"{self.title}" by {self.author}'
     
     def get_absolute_url(self):
-        return reverse('blog-post-detail', kwargs={'pk': self.pk,})
+        return reverse('blog-post-detail', kwargs={'pk': self.pk, })
