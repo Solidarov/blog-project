@@ -30,4 +30,4 @@ class Comment(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f'"On {self.post.title}" by {self.author}'
+        return f'On "{self.post.title}" by {self.author}'
